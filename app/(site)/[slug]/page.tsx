@@ -11,19 +11,23 @@ export default async function Page( {params}: Props) {
 
     return (
         <div>
-            <h1 className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600
+            <h1 className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700
             bg-clip-text text-transparent text-4xl drop-shadow font-extrabold">
                 {page.title}
             </h1>
-            { page.image && <Image
-                src={page.image}
-                alt={page.title}
-                width={1920}
-                height={1080}
-                className="mt-10 border-2 borger-gray-700 object-cover rounded-xl"
-            /> }
-            <div className="text-lg text-gray-700 mt-10">
-                <PortableText value={page.content}/>
+            <div className="flex gap-10">
+                { page.image && <Image
+                    src={page.image}
+                    alt={page.title}
+                    width={350}
+                    height={350}
+                    className="mt-10 border-2 borger-gray-700 object-cover rounded-xl"
+                    priority={true}
+                 /> 
+                }
+                <div className="text-lg text-gray-700 mt-10">
+                    <PortableText value={page.content}/>
+                </div>
             </div>
         </div>
     )

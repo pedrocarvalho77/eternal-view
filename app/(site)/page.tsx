@@ -10,7 +10,7 @@ export default async function Home() {
     <div>
       <h1 className="text-7xl font-extrabold"> 
         Hello I&apos;m 
-        <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600
+        <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700
         bg-clip-text text-transparent">
          Pedro
         </span>
@@ -38,7 +38,7 @@ export default async function Home() {
                 className = "object-cover rounded-lg border border-gray-500 hover:scale-105 hover:border-blue-500 transition"
               />
             )}
-          <div className="mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600
+          <div className="mt-2 font-extrabold bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700
           bg-clip-text text-transparent"> 
             {project.name}
           </div>

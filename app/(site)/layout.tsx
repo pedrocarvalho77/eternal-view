@@ -18,11 +18,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className='max-w-3xl mx-auto py-10'>
+      <body className='max-w-5xl mx-auto px-5 py-10'>
         <header className='flex items-center justify-between'>
           <Link 
             href="/"
-            className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600
+            className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700
             bg-clip-text text-transparent text-lg font-bold"
           >
             Pedro 
