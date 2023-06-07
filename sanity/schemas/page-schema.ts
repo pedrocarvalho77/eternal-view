@@ -21,9 +21,14 @@ const page = {
             name: "image",
             title: "Image",
             type: "image",
-            options: {
-              hotspot: true,
-            },
+            options: { hotspot: true, },
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt',
+                    type: 'string'
+                }
+            ]
           },
         {
             name: "content",
