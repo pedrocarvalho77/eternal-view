@@ -18,7 +18,7 @@ const project = {
             name: 'image',
             title: 'Image',
             type: 'image',
-            options: { hotstop: true },
+            options: { hotspot: true },
             fields: [
                 {
                     name: 'alt',
