@@ -1,6 +1,8 @@
 import '../globals.css'
 import Link from 'next/link'
 import { getPages } from '@/sanity/sanity-utils'
+import DarkModeToggle from './components/DarkModeToggle';
+import { Providers } from '../providers';
 
 export const metadata = {
   title: 'Pedro Carvalho Personal Webiste',
@@ -15,6 +17,7 @@ export default async function RootLayout ({ children }: { children: React.ReactN
   return (
     <html lang="en">
       <body className='max-w-5xl mx-auto px-5 py-10'>
+      <Providers>
         <header className='flex items-center justify-between'>
           <Link 
             href="/"
@@ -23,7 +26,6 @@ export default async function RootLayout ({ children }: { children: React.ReactN
           >
             Pedro 
           </Link>
-
           <div className='flex items-center gap-5 text-sm text-gray-600'>
             {pages.map((page) => (
               <Link key={page._id} href={`/${page.slug}`} className='hover:underline'>
@@ -31,9 +33,11 @@ export default async function RootLayout ({ children }: { children: React.ReactN
               </Link>
             ))}
           </div>
+          <DarkModeToggle />
         </header>
           <main className="py-20">{children}</main>
         <footer className="text-right" >&copy; 2023 Pedro Carvalho. All rights reserved.</footer>
+        </Providers>
       </body>
     </html>
   )
