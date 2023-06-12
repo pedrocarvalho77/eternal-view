@@ -9,7 +9,7 @@ type Props = {
 
 };
 
-async function ChakraPage( { params }: Props ) {
+export default async function ChakraPage( { params }: Props ) {
 
     const page = await getPage(params.slug);
     return (
@@ -44,5 +44,3 @@ async function ChakraPage( { params }: Props ) {
       </Box>
     );
 };
-
-export default ChakraPage;

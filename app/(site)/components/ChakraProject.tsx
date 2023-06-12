@@ -7,7 +7,8 @@ type Props = {
   params: { project: string };
 };
 
-export default async function Project({ params }: Props) {
+export default async function ChakraProject({ params }: Props) {
+  
   const slug = params.project;
   const project = await getProject(slug);
 
@@ -20,7 +21,7 @@ export default async function Project({ params }: Props) {
           color="transparent"
           fontSize="4xl"
           fontWeight="extrabold"
-          className="drop-shadow"
+          dropShadow={"0 0 0.5rem #000000"}
         >
           {project.name}
         </Heading>
@@ -44,17 +45,17 @@ export default async function Project({ params }: Props) {
         </Link>
       </Flex>
 
-      {/* Content goes here */}
-      <Text fontSize="lg" color="gray.700" mt={10}>
+      {/* Content goes here*/}
+      <Box fontSize="lg" color={"gray.700"} marginTop={10}>
         <PortableText value={project.content} />
-      </Text>
-
+      </Box>
+      
       {/* Image goes here */}
-      <Box mt={10} border="2px" borderColor="gray.700" rounded="xl" overflow="hidden">
+      <Box marginTop={10} border="2px" borderColor="gray.700" rounded="xl" overflow="hidden">
         <Image
           src={project.image}
           alt={project.name}
-          boxSize={"100%"}
+          boxSize="100%"
           objectFit="cover"
         />
       </Box>

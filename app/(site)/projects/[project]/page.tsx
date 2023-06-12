@@ -1,14 +1,12 @@
 import ChakraProject from "../../components/ChakraProject";
 
 type Props = {
-    
-    params: {project: string}
+    params: { project: string }
+  }
 
-};
-
-export default async function Project( { params }: Props) {;  
-
+export default function Project( { params }: Props) {;  
+  
     return (  
-        <ChakraProject params={ params }/>
+        <ChakraProject params={params}/>
      )
 };

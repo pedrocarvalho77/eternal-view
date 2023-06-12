@@ -3,11 +3,12 @@
 import { getProjects } from "@/sanity/sanity-utils";
 import { Box, Heading, Text, Link as ChakraLink, Image } from "@chakra-ui/react";
 
-async function ChakraProjects() {
+export default async function ChakraProjects(  ) {
   const projects = await getProjects();
 
   return (
-    <div>
+    
+    <Box>
       <Heading as="h1" size="4xl" fontWeight="extrabold">
         Hello I&apos;m{" "}
         <Text
@@ -20,11 +21,11 @@ async function ChakraProjects() {
         !
       </Heading>
 
-      <Text mt="3" fontSize="xl" color="gray.600">
+      <Text mt="3" fontSize="xl">
         Aloha everyone! Check out my projects
       </Text>
 
-      <Heading mt="20" fontWeight="bold" color="gray.700" size="3xl">
+      <Heading mt="20" fontWeight="bold" size="3xl">
         My Projects
       </Heading>
       <Box mt="5" display="grid" gridGap="8" gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))">
@@ -57,8 +58,6 @@ async function ChakraProjects() {
           </ChakraLink>
         ))}
       </Box>
-    </div>
+    </Box>
   );
 }
-
-export default ChakraProjects;

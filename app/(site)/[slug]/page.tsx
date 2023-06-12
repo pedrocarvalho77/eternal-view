@@ -1,12 +1,10 @@
-import { getPage } from "@/sanity/sanity-utils";
 import ChakraPage from "../components/ChakraPage";
 
 type Props = {
   params: { slug: string };
 };
 
-export default async function Page({ params }: Props) {
-  const page = await getPage(params.slug);
+export default function Page({ params } : Props) {
 
-  return <ChakraPage params={ page } />;
+  return <ChakraPage params={params} />;
 }

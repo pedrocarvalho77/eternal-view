@@ -1,5 +1,7 @@
 import ChakraLayout from "./components/ChakraLayout";
-import { Providers } from "../providers";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Providers from "./components/Providers";
 
 export default function RootLayout ({ children }: { children: React.ReactNode }) {
   
@@ -7,7 +9,11 @@ export default function RootLayout ({ children }: { children: React.ReactNode })
     <html lang="en">  
       <body>
         <Providers>
-          <ChakraLayout>{children}</ChakraLayout>
+        <Navbar/>
+          <ChakraLayout>
+            {children}
+          </ChakraLayout>
+          <Footer/>
          </Providers>
       </body>
     </html>
