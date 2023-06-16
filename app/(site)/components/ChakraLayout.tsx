@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import { Box} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 export default async function ChakraLayout ({ children }: { children: React.ReactNode }) {
 
