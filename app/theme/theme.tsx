@@ -9,7 +9,17 @@ const config: ThemeConfig = {
   useSystemColorMode: true,
 }
 
+// Font settings
+const fonts = {
+  heading: "Oswald, sans-serif",
+  body: "Open Sans, sans-serif",
+  mono: "Fira Code, monospace",
+};
+
 // 3. extend the theme
-const theme = extendTheme({ config })
+const theme = extendTheme({ 
+  config,
+  fonts
+ })
 
 export default theme
