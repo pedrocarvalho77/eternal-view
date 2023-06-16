@@ -7,7 +7,7 @@ import theme from '../../theme/theme'
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <CacheProvider>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider resetCSS theme={theme}>
         <Box maxW="6xl" mx="auto" px={5} py={10}>
           {children}
         </Box>
