@@ -1,4 +1,4 @@
-import ChakraProject from "../../components/ChakraProject";
+import ProjectComponent from "../../components/ProjectComponent";
 
 type Props = {
     params: { project: string }
@@ -7,6 +7,6 @@ type Props = {
 export default function Project( { params }: Props) {;  
   
     return (  
-        <ChakraProject params={params}/>
+        <ProjectComponent params={params}/>
      )
 };

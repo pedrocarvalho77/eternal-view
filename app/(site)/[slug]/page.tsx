@@ -1,4 +1,4 @@
-import ChakraPage from "../components/ChakraPage";
+import PageComponent from "../components/PageComponent";
 
 type Props = {
   params: { slug: string };
@@ -6,5 +6,5 @@ type Props = {
 
 export default function Page({ params } : Props) {
 
-  return <ChakraPage params={params} />;
+  return <PageComponent params={params} />;
 }

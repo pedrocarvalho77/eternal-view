@@ -1,8 +1,8 @@
-import ChakraProjects from "./components/ChakraProjects";
+import Projects from "./components/Projects";
 
 export default async function Home( ) {
 
   return (
-    <ChakraProjects></ChakraProjects>
+    <Projects></Projects>
   )
 }

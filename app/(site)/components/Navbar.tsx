@@ -1,8 +1,6 @@
-"use client"
-
-import { Flex, Link } from "@chakra-ui/react"
-import DarkModeToggle from "./DarkModeToggle"
+import Link from "next/link"
 import { getPages } from "@/sanity/sanity-utils";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default async function Footer () {
     
@@ -10,18 +8,16 @@ export default async function Footer () {
     const pages = await getPages();
 
     return (
-        <Flex align="center" justify="space-between">
-        <Link href="/" bgGradient="linear(to-r, blue.300, blue.500, blue.700)" bgClip="text" color="transparent" fontSize="lg" fontWeight="bold">
+      <header className="flex items-center justify-between">
+         <Link href="/" className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 bg-clip-text text-transparent text-lg font-bold">
           Pedro
-        </Link>
-        <Flex align="center" gap={5} fontSize="sm" color="gray.600">
+        </Link>      
+        <div className="flex items-center gap-5 text-sm text-gray-600">
           {pages.map((page) => (
-            <Link key={page._id} href={`/${page.slug}`} textDecoration="underline" _hover={{ textDecoration: "none" }}>
-              {page.title}
-            </Link>
+            <Link key={page._id} href={`/${page.slug}`} className="hover:underline">{page.title}</Link>
           ))}
-        </Flex>
-        <DarkModeToggle/>
-        </Flex>
+        </div>
+        <ThemeSwitcher/>
+    </header>
     )
 }
