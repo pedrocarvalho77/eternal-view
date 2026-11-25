@@ -10,7 +10,7 @@ const links = [
 export default function Navbar () {
   return (
     <header className="flex items-center justify-between gap-4">
-      <Link href="/" className="text-gradient text-lg font-bold">
+      <Link href="/" className="text-blue-700 dark:text-blue-400 text-lg font-bold">
         Pedro
       </Link>
       <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-sm text-gray-600 dark:text-gray-300">

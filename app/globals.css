@@ -14,9 +14,3 @@
     color-scheme: light;
   }
 }
-
-@layer components {
-  .text-gradient {
-    @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 bg-clip-text text-transparent;
-  }
-}

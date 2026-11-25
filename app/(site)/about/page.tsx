@@ -5,7 +5,7 @@ export const metadata = { title: "About" };
 export default function About() {
   return (
     <div>
-      <h1 className="text-gradient text-4xl sm:text-5xl drop-shadow font-extrabold">About</h1>
+      <h1 className="text-blue-700 dark:text-blue-400 text-4xl sm:text-5xl font-extrabold">About</h1>
       <Image
         src="/img/about.png"
         alt="Portrait of Pedro Carvalho"
