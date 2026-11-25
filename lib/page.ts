@@ -99,7 +99,7 @@ export async function renderPage(): Promise<string> {
         <div class="btn-row"><a class="btn btn--primary" href="mailto:${EMAIL}">Email Pedro${arrow}</a><a class="btn btn--secondary" href="#projects">See my projects</a></div>
       </div>
       <div class="hero__media span-6 start-7">
-        <img src="/img/pedro.jpg" srcset="/img/pedro-640.jpg 640w, /img/pedro.jpg 1100w" sizes="(max-width: 1023px) 100vw, 628px" alt="Portrait of Pedro Carvalho" style="--ly-pos: 50% 30%" fetchpriority="high" width="1100" height="1100">
+        <img src="/img/pedro.jpg" srcset="/img/pedro-640.jpg 533w, /img/pedro.jpg 1000w" sizes="(max-width: 1023px) 100vw, 628px" alt="Black and white portrait of Pedro Carvalho, smiling with his hand on his cheek" style="--ly-pos: 55% 38%" fetchpriority="high" width="1000" height="1500">
       </div>
     </div></div>
   </section>
