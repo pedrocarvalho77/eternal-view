@@ -12,7 +12,7 @@ const groups = [
 export default function Skills() {
   return (
     <div>
-      <h1 className="text-gradient text-4xl sm:text-5xl drop-shadow font-extrabold">Skills</h1>
+      <h1 className="text-blue-700 dark:text-blue-400 text-4xl sm:text-5xl font-extrabold">Skills</h1>
       <div className="mt-10 space-y-6">
         {groups.map((g) => (
           <section key={g.title}>

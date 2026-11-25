@@ -1,5 +1,6 @@
 import { getRepos } from "@/lib/github";
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default async function Projects( ) {
   const repos = await getRepos();
@@ -8,11 +9,23 @@ export default async function Projects( ) {
     <div>
       <h1 className="text-4xl sm:text-7xl font-extrabold">
         Hello I&apos;m{" "}
-        <span className="text-gradient">
+        <span className="text-blue-700 dark:text-blue-400">
           Pedro!
         </span>
       </h1>
-      <p className="mt-3 text-xl text-gray-600 dark:text-gray-300">Hi everyone! Check out my projects!</p>
+      <p className="mt-4 text-xl text-gray-700 dark:text-gray-300">
+        Software engineer at FanDuel (through Blip.pt) in Porto, working with Java and Spring Boot.
+      </p>
+      <p className="mt-3 text-gray-600 dark:text-gray-400">
+        Computer Science at FCUP, now a master&apos;s in Software Engineering at ISEP. Before moving into
+        development, I held leadership roles in youth non-profits.
+      </p>
+      <Link
+        href="/contact"
+        className="mt-6 inline-block rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-blue-500 dark:text-gray-950 dark:hover:bg-blue-400 dark:focus-visible:ring-offset-gray-950"
+      >
+        Get in touch
+      </Link>
       <h2 className="mt-16 sm:mt-24 font-bold text-gray-700 dark:text-gray-200 text-3xl">My Projects</h2>
 
       <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">{repos.map((repo) => (
@@ -26,7 +39,7 @@ export default async function Projects( ) {
               className="object-cover rounded-lg border border-gray-500"
             />
           )}
-          <div className="mt-2 px-1 font-extrabold text-gradient break-words">
+          <div className="mt-2 px-1 font-extrabold text-blue-700 dark:text-blue-400 break-words">
             {repo.name}
           </div>
           {repo.description && (
