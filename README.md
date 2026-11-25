@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# eternal-view
 
-## Getting Started
+Personal website of Pedro Carvalho: a landing page with a project showcase, plus content pages (About, Skills, Contact). Content is managed in [Sanity](https://www.sanity.io/) and rendered with Next.js.
 
-First, run the development server:
+## Stack
+
+- [Next.js 13](https://nextjs.org/) (App Router, server components) + TypeScript
+- [Tailwind CSS](https://tailwindcss.com/) with class-based dark mode (follows the system theme, toggle persisted in `localStorage`)
+- [Sanity](https://www.sanity.io/) headless CMS, with the Studio embedded at `/admin` (`next-sanity`)
+- [`@portabletext/react`](https://github.com/portabletext/react-portabletext) to render rich text
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>. The Studio is at <http://localhost:3000/admin> (requires a Sanity login with access to the project).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts: `npm run build`, `npm start`, `npm run lint`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Structure
 
-## Learn More
+```
+app/(site)/     public site: home (projects), /[slug] (pages), /projects/[project]
+app/(studio)/   embedded Sanity Studio (/admin)
+sanity/         schemas (page, project), GROQ queries and client config
+types/          TypeScript types for Sanity documents
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Content comes from the Sanity project configured in `sanity/config/client-config.ts` and `sanity.config.ts` (project id `hd0nb5bl`, dataset `production`). The project id is public and read-only queries need no token. To use another project, change the id and dataset in both files.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Pages** (`page`): title, slug, optional image, rich-text content. Each page is added to the navbar automatically.
+- **Projects** (`project`): name, slug, image, URL, rich-text content.
 
-## Deploy on Vercel
+Pages are re-fetched from Sanity at most once a minute. Unknown slugs return a 404.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Works on [Vercel](https://vercel.com/new) with no environment variables. The `cdn.sanity.io` image host is allowed in `next.config.js`.
