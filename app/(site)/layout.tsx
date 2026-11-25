@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 // Runs right after the <meta>, before first paint: applies a stored override without a flash.
-const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.querySelector('meta[name="color-scheme"]').content=t}catch(e){}`
+const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;document.querySelector('meta[name="color-scheme"]').content=t}}catch(e){}`
 
 export default function RootLayout ({ children }: { children: React.ReactNode }) {
   return (

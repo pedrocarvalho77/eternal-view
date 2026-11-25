@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  /* Native UI (scrollbars, form controls, canvas) follows <meta name="color-scheme">. */
+  /* Native UI (scrollbars, form controls, canvas) follows the override, else the system. */
   :root {
     color-scheme: light dark;
   }
-  :root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  :root[data-theme="dark"] {
     color-scheme: dark;
   }
-  :root:has(> head > meta[name="color-scheme"][content="light"]) {
+  :root[data-theme="light"] {
     color-scheme: light;
   }
 }
