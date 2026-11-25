@@ -14,7 +14,7 @@ const page = {
             type: "slug",
             options: {
                 source: "title",
-                maxLenght: 96,
+                maxLength: 96,
             },
         },
         {

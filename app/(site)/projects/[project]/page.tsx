@@ -1,12 +1,9 @@
 import ProjectComponent from "../../components/ProjectComponent";
 
 type Props = {
-    params: { project: string }
-  }
+  params: { project: string }
+}
 
-export default function Project( { params }: Props) {;  
-  
-    return (  
-        <ProjectComponent params={params}/>
-     )
-};
+export default function Project( { params }: Props) {
+  return <ProjectComponent params={params}/>
+}

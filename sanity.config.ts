@@ -6,7 +6,7 @@ import { visionTool } from "@sanity/vision";
 const config = defineConfig({
     projectId: "hd0nb5bl",
     dataset: "production",
-    title: "My Personal Webiste",
+    title: "My Personal Website",
     apiVersion: "2023-06-05",
     basePath: "/admin",
     plugins: [deskTool(), visionTool()],
