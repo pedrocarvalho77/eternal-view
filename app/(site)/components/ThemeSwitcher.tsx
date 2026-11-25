@@ -3,38 +3,50 @@
 import { useEffect } from 'react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
-const DARK_QUERY = '(prefers-color-scheme: dark)';
+type Scheme = 'light' | 'dark';
 
-const getMeta = () => document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]')!;
+const isScheme = (v: string | null): v is Scheme => v === 'light' || v === 'dark';
 
-// Meta content: "light dark" = follow the system, "light"/"dark" = override.
-function applyStored() {
-  let stored: string | null = null;
-  try { stored = localStorage.getItem('theme'); } catch {}
-  getMeta().content = stored === 'light' || stored === 'dark' ? stored : 'light dark';
+// Override = data-theme on <html> (drives CSS) + <meta name="color-scheme"> ("light dark" = follow the system).
+function setOverride(scheme: Scheme | null) {
+  const root = document.documentElement;
+  if (scheme) root.dataset.theme = scheme;
+  else delete root.dataset.theme;
+  document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]')!.content = scheme ?? 'light dark';
 }
 
-// The icon follows the meta through the `dark:` variant, so no React state is needed.
+function readStored(): Scheme | null {
+  try {
+    const v = localStorage.getItem('theme');
+    return isScheme(v) ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+// The icon follows the theme through the `dark:` variant, so no React state is needed.
 export default function ThemeSwitcher() {
   // Stay in sync when the override changes in another tab.
   useEffect(() => {
-    const onStorage = (e: StorageEvent) => { if (e.key === 'theme' || e.key === null) applyStored(); };
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'theme' || e.key === null) setOverride(readStored());
+    };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
   }, []);
 
   const toggleTheme = () => {
-    const meta = getMeta();
-    const system = matchMedia(DARK_QUERY).matches ? 'dark' : 'light';
-    const current = meta.content === 'light' || meta.content === 'dark' ? meta.content : system;
-    const target = current === 'dark' ? 'light' : 'dark';
+    const system: Scheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const current = document.documentElement.dataset.theme;
+    const target: Scheme = (isScheme(current ?? null) ? current : system) === 'dark' ? 'light' : 'dark';
 
-    // Only store an override that differs from the system, so the site keeps following it otherwise.
+    // Only keep an override that differs from the system, so the site keeps following it otherwise.
+    const override = target === system ? null : target;
     try {
-      if (target === system) localStorage.removeItem('theme');
-      else localStorage.setItem('theme', target);
+      if (override) localStorage.setItem('theme', override);
+      else localStorage.removeItem('theme');
     } catch {}
-    meta.content = target === system ? 'light dark' : target;
+    setOverride(override);
   };
 
   return (

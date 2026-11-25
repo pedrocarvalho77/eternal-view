@@ -1,14 +1,12 @@
-const root = ':root:has(> head > meta[name="color-scheme"]'
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // `dark:` follows <meta name="color-scheme">: "dark" is an explicit override,
-  // "light dark" (default) follows the system preference.
+  // `dark:` follows the data-theme attribute on <html> (an explicit override, mirrored in
+  // <meta name="color-scheme">); without it, the system preference decides.
   darkMode: [
     'variant',
     [
-      `:where(${root}[content="dark"])) &`,
-      `@media (prefers-color-scheme: dark) { :where(${root}[content="light dark"])) & }`,
+      ':where(:root[data-theme="dark"]) &',
+      '@media (prefers-color-scheme: dark) { :where(:root:not([data-theme])) & }',
     ],
   ],
   content: [
