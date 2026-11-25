@@ -51,7 +51,7 @@ export async function renderPage(): Promise<string> {
 :root {
   --p-bg: #dedad3; --p-surface: #d3cec6; --p-ink: #0a0a0a; --p-muted: #55514c;
   --p-accent: #256f82; --p-accent-ink: #ffffff; --p-action: #256f82; --p-action-ink: #ffffff;
-  --p-inv-bg: #0a0a0a; --p-inv-surface: #151515; --p-inv-ink: #dedad3; --p-inv-muted: #84827e;
+  --p-inv-bg: #1f1c18; --p-inv-surface: #2a2621; --p-inv-ink: #dedad3; --p-inv-muted: #9a978f;
   --p-inv-accent: #256f82; --p-inv-accent-ink: #ffffff; --p-inv-action: #256f82; --p-inv-action-ink: #ffffff;
   --font-display: "Newsreader", Georgia, serif;
   --font-text: "Hanken Grotesk", system-ui, sans-serif;
