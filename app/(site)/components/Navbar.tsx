@@ -1,23 +1,14 @@
 import Link from "next/link"
+import NavLinks from "./NavLinks";
 import ThemeSwitcher from "./ThemeSwitcher";
-
-const links = [
-  { href: "/about", label: "About" },
-  { href: "/skills", label: "Skills" },
-  { href: "/contact", label: "Contact" },
-];
 
 export default function Navbar () {
   return (
-    <header className="flex items-center justify-between gap-4">
-      <Link href="/" className="text-blue-700 dark:text-blue-400 text-lg font-bold">
+    <header className="flex items-center justify-between gap-2">
+      <Link href="/" className="flex min-h-11 items-center rounded text-lg font-bold text-blue-700 dark:text-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
         Pedro
       </Link>
-      <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
-        {links.map((l) => (
-          <Link key={l.href} href={l.href} className="hover:underline">{l.label}</Link>
-        ))}
-      </nav>
+      <NavLinks />
       <ThemeSwitcher/>
     </header>
   )

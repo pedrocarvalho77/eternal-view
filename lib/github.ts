@@ -1,3 +1,5 @@
+import snapshotData from "./repos-snapshot.json";
+
 export type Repo = {
   name: string;
   url: string;
@@ -5,23 +7,23 @@ export type Repo = {
   language: string | null;
   stars: number;
   homepage: string | null;
-  image?: string;
 };
 
 const USER = "pedrocarvalho77";
+const snapshot: Repo[] = snapshotData;
 
-// Local overrides for repos whose GitHub description is empty, plus cover images (in /public/projects).
-const overrides: Record<string, Partial<Pick<Repo, "description" | "image">>> = {
-  "Tiger-0-Compiler": {
-    description: "A Tiger-0 language compiler written in Haskell, Yacc and Lex.",
-    image: "/projects/tiger-0-compiler.png",
-  },
-  "AI-Machine-Learning": { image: "/projects/ai-machine-learning.png" },
-  Battleship: { description: "Battleship academic project in C.", image: "/projects/battleship.png" },
+// Repos shown first and larger on the home page, in this order. The rest are listed below them.
+export const featured = ["jubilant-api", "jubliant-spoon", "Tiger-0-Compiler", "AI-Machine-Learning"];
+
+// Local descriptions for repos whose GitHub description is empty.
+const overrides: Record<string, Partial<Pick<Repo, "description">>> = {
+  "Tiger-0-Compiler": { description: "A Tiger-0 language compiler written in Haskell, Yacc and Lex." },
+  Battleship: { description: "Battleship academic project in C." },
 };
 
-// Anonymous GitHub API calls are limited to 60/h per IP; set GITHUB_TOKEN to raise that.
-export async function getRepos(): Promise<Repo[]> {
+// Used when the GitHub API fails (e.g. rate limit on shared build IPs), so a deploy never fails because of it.
+// Refresh with: gh api "users/pedrocarvalho77/repos?type=owner&sort=pushed&per_page=100" (see README).
+async function fetchRepos(): Promise<Repo[]> {
   const res = await fetch(
     `https://api.github.com/users/${USER}/repos?type=owner&sort=pushed&per_page=100`,
     {
@@ -32,7 +34,7 @@ export async function getRepos(): Promise<Repo[]> {
       next: { revalidate: 3600 },
     }
   );
-  if (!res.ok) throw new Error(`GitHub API ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`GitHub API ${res.status}`);
 
   const repos: any[] = await res.json();
   return repos
@@ -44,6 +46,17 @@ export async function getRepos(): Promise<Repo[]> {
       language: r.language,
       stars: r.stargazers_count,
       homepage: r.homepage || null,
-      ...overrides[r.name],
     }));
+}
+
+// Anonymous GitHub API calls are limited to 60/h per IP; set GITHUB_TOKEN to raise that.
+export async function getRepos(): Promise<Repo[]> {
+  let repos: Repo[];
+  try {
+    repos = await fetchRepos();
+  } catch (e) {
+    console.warn(`getRepos: ${e instanceof Error ? e.message : e}; using the bundled snapshot`);
+    repos = snapshot;
+  }
+  return repos.map((r) => ({ ...r, ...overrides[r.name] }));
 }
