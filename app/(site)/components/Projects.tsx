@@ -41,10 +41,6 @@ export default async function Projects( ) {
       <p className="mt-4 text-xl text-gray-700 dark:text-gray-300">
         Software engineer at FanDuel (through Blip.pt) in Porto, working with Java and Spring Boot.
       </p>
-      <p className="mt-3 text-gray-600 dark:text-gray-400">
-        Computer Science at FCUP, now a master&apos;s in Software Engineering at ISEP. Before moving into
-        development, I held leadership roles in youth non-profits.
-      </p>
       <Link
         href="/contact"
         className="mt-6 inline-block rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-blue-500 dark:text-gray-950 dark:hover:bg-blue-400 dark:focus-visible:ring-offset-gray-950"
@@ -52,7 +48,17 @@ export default async function Projects( ) {
         Get in touch
       </Link>
 
-      <h2 className="mt-16 sm:mt-24 font-bold text-gray-700 dark:text-gray-200 text-3xl">Featured projects</h2>
+      <h2 className="mt-16 sm:mt-24 font-bold text-gray-700 dark:text-gray-200 text-3xl">A bit about me</h2>
+      <p className="mt-3 max-w-prose text-lg text-gray-700 dark:text-gray-300">
+        I studied Computer Science at FCUP and I&apos;m now doing a master&apos;s in Software Engineering at
+        ISEP. Before moving into development, I held leadership roles in youth non-profits, and I try to bring
+        that organizational side to the code I write.{" "}
+        <Link href="/about" className="underline underline-offset-4 hover:text-blue-700 dark:hover:text-blue-400">
+          More about me
+        </Link>
+      </p>
+
+      <h2 className="mt-12 font-bold text-gray-700 dark:text-gray-200 text-3xl">Featured projects</h2>
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         {top.map((repo) => <FeaturedCard key={repo.name} repo={repo} />)}
       </div>

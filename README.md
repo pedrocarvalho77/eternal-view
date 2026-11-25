@@ -30,8 +30,8 @@ public/         images (about photo, project covers)
 - **Per-repo overrides**: `overrides` in `lib/github.ts` adds a description and/or a cover image (put the file in `public/projects/`) for a repo.
 - **About / Skills / Contact**: plain pages in `app/(site)/`; edit the text there.
 
-Anonymous GitHub API calls are limited to 60 per hour per IP. If a build fails with `GitHub API 403`, set a `GITHUB_TOKEN` environment variable (a token with no scopes is enough) on Vercel.
+Anonymous GitHub API calls are limited to 60 per hour per IP, and Vercel builds share IPs. If the API fails, the site falls back to `lib/repos-snapshot.json` instead of failing the build; set a `GITHUB_TOKEN` environment variable (a token with no scopes is enough) on Vercel to avoid that. Refresh the snapshot with `gh api "users/pedrocarvalho77/repos?type=owner&sort=pushed&per_page=100" --jq '[.[]|select(.fork==false and .archived==false)|{name,url:.html_url,description,language,stars:.stargazers_count,homepage:(.homepage//null)}]' > lib/repos-snapshot.json`.
 
 ## Deploy
 
-Works on [Vercel](https://vercel.com/new) with no environment variables (see the note above about `GITHUB_TOKEN`). Node 24.x is pinned in `package.json`.
+Works on [Vercel](https://vercel.com/new) with no environment variables (see the `GITHUB_TOKEN` note above). Node 24.x is pinned in `package.json`.
