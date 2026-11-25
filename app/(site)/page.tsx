@@ -1,8 +1,7 @@
 import Projects from "./components/Projects";
 
-export default async function Home( ) {
+export const revalidate = 3600
 
-  return (
-    <Projects></Projects>
-  )
+export default function Home() {
+  return <Projects />
 }

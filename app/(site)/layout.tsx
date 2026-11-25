@@ -11,9 +11,6 @@ export const metadata = {
   description: "Pedro Carvalho's personal website and projects.",
 }
 
-// Re-fetch Sanity content at most once a minute instead of freezing it at build time.
-export const revalidate = 60
-
 // Runs before first paint so the saved/system theme is applied without a flash.
 const themeScript = `try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`
 
