@@ -37,3 +37,7 @@ next-env.d.ts
 # IDE
 *.vscode
 *.code-workspace
+# design tooling output
+.taste-skill/
+.impeccable/
+shots/
