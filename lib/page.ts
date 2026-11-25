@@ -22,7 +22,7 @@ export async function renderPage(): Promise<string> {
   const description = "Software engineer at FanDuel in Porto, building backend services with Java and Spring Boot. Projects, tools and contact.";
 
   return `<!doctype html>
-<html lang="en" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
+<html lang="en" data-type="service" data-radius="soft" data-buttons="pill" data-motion>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -34,13 +34,13 @@ export async function renderPage(): Promise<string> {
 <meta property="og:image" content="${SITE}/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#f7f9f8">
+<meta name="theme-color" content="#dedad3">
 <link rel="canonical" href="${SITE}/">
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&family=Hanken+Grotesk:wght@400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/system.css">
 <link rel="stylesheet" href="/assets/ui/cards.css">
 <link rel="stylesheet" href="/assets/motion/motion.css">
@@ -49,17 +49,18 @@ export async function renderPage(): Promise<string> {
 <link rel="stylesheet" href="/assets/diagrams/diagram.css">
 <style>
 :root {
-  --p-bg: #f7f9f8; --p-surface: #ebf0ee; --p-ink: #06525c; --p-muted: #2f737d;
-  --p-accent: #06525c; --p-accent-ink: #f7f9f8; --p-action: #06525c; --p-action-ink: #f7f9f8;
-  --p-inv-bg: #06525c; --p-inv-surface: #205d66; --p-inv-ink: #f7f9f8; --p-inv-muted: #c1d0d2;
-  --p-inv-accent: #f7f9f8; --p-inv-accent-ink: #06525c; --p-inv-action: #f7f9f8; --p-inv-action-ink: #06525c;
-  --font-display: "Host Grotesk", system-ui, sans-serif;
-  --font-text: "Host Grotesk", system-ui, sans-serif;
+  --p-bg: #dedad3; --p-surface: #d3cec6; --p-ink: #0a0a0a; --p-muted: #55514c;
+  --p-accent: #256f82; --p-accent-ink: #ffffff; --p-action: #256f82; --p-action-ink: #ffffff;
+  --p-inv-bg: #0a0a0a; --p-inv-surface: #151515; --p-inv-ink: #dedad3; --p-inv-muted: #84827e;
+  --p-inv-accent: #256f82; --p-inv-accent-ink: #ffffff; --p-inv-action: #256f82; --p-inv-action-ink: #ffffff;
+  --font-display: "Newsreader", Georgia, serif;
+  --font-text: "Hanken Grotesk", system-ui, sans-serif;
   --display-weight: 400;
-  --display-tracking: -0.035em;
-  --display-tracking-xl: -0.04em;
+  --display-tracking: -0.018em;
+  --display-tracking-xl: -0.025em;
+  --ly-scale: 1.06;
 }
-/* the statement's resting words: 3:1 at least on the ground (the kit's 50% mix measured 2.6:1 with this palette) */
+/* the statement's resting words: 3:1 at least on the ground (the kit's 50% mix was 2.6:1 on the previous palette) */
 @media (prefers-reduced-motion: no-preference) { .mo-wh .mo-w:not(.is-on) { color: color-mix(in oklab, var(--ink) 68%, var(--bg)); } }
 #projects .rows > li { padding-block: var(--s-3); }
 @media (max-width: 359px) { .nav__actions .btn { display: none; } }
@@ -73,7 +74,7 @@ export async function renderPage(): Promise<string> {
 </head>
 <body>
 <!-- type: service
-     deal: type garamond failed hero-lines, so the next pairings (schibsted failed too, then host); hero split, nav-split, footer-dark, close-type (close-photo needs a second photograph), rhythm dark-band (skills), buttons solid, mark dots
+     deal: palette putty-black-teal and pairing newsreader (chosen by the owner from the dealt lists); hero split, nav-split, footer-dark, close-type (close-photo needs a second photograph), rhythm dark-band (skills), buttons pill, mark dots
      moments: word-highlight in #about -->
 <header class="nav nav--split">
   <div class="wrap nav__bar">

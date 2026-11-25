@@ -6,7 +6,7 @@ Personal website of Pedro Carvalho, software engineer in Porto: one page with an
 
 - [Next.js 16](https://nextjs.org/) and TypeScript. The page is one route handler (`app/route.ts`) that returns a complete HTML document built in `lib/page.ts`, regenerated at most once an hour.
 - Layout, type and motion come from a small design kit committed in `public/assets` (CSS, a little vanilla JS, the real tool icons). There is no React on the page and no CSS framework.
-- Light theme (palette and pairing in the `:root` block of `lib/page.ts`), Host Grotesk from Google Fonts.
+- Light theme (putty and black with a teal accent; palette and pairing in the `:root` block of `lib/page.ts`), Newsreader and Hanken Grotesk from Google Fonts.
 
 ## Getting started
 
