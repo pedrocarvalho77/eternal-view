@@ -4,7 +4,7 @@ Personal website of Pedro Carvalho: a landing page that lists all my public GitH
 
 ## Stack
 
-- [Next.js 13](https://nextjs.org/) (App Router, server components) + TypeScript
+- [Next.js 16](https://nextjs.org/) (App Router, server components) + TypeScript
 - [Tailwind CSS](https://tailwindcss.com/) with class-based dark mode (follows the system theme, toggle persisted in `localStorage`)
 
 ## Getting started
