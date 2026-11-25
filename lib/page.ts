@@ -93,7 +93,7 @@ export async function renderPage(): Promise<string> {
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-5">
         <h1 id="hero-h">Software engineer in Porto</h1>
-        <p class="hero__lead">I build backend services in Java and Spring Boot at FanDuel, through Blip.pt. I'm also doing a master's in Software Engineering at ISEP.</p>
+        <p class="hero__lead">I work at FanDuel, through Blip.pt, writing Java and Spring Boot. I'm also doing a master's in Software Engineering at ISEP.</p>
         <div class="btn-row"><a class="btn btn--primary" href="mailto:${EMAIL}">Email Pedro${arrow}</a><a class="btn btn--secondary" href="#projects">See my projects</a></div>
       </div>
       <div class="hero__media span-6 start-7">
