@@ -104,7 +104,7 @@ export async function renderPage(): Promise<string> {
 
   <section class="section statement" id="about" data-moment="word-highlight" aria-label="About">
     <div class="wrap">
-      <p class="mo-wh__text">I studied Computer Science at FCUP, and I'm now doing a master's in Software Engineering at ISEP. Before moving into development, I led youth non-profits, and I bring that <strong>organization</strong> to the code I write.</p>
+      <p class="mo-wh__text">I studied Computer Science at FCUP, and I'm now doing a master's in Software Engineering at ISEP. Before moving into development, I was president of one youth <strong>non-profit</strong> and treasurer of another.</p>
     </div>
   </section>
 
