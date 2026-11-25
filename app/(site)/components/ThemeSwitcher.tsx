@@ -1,15 +1,40 @@
 "use client"
 
+import { useEffect } from 'react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
-// The `dark` class is set before paint by the inline script in the layout;
-// the icon follows it through CSS, so no React state is needed.
+const DARK_QUERY = '(prefers-color-scheme: dark)';
+
+const getMeta = () => document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]')!;
+
+// Meta content: "light dark" = follow the system, "light"/"dark" = override.
+function applyStored() {
+  let stored: string | null = null;
+  try { stored = localStorage.getItem('theme'); } catch {}
+  getMeta().content = stored === 'light' || stored === 'dark' ? stored : 'light dark';
+}
+
+// The icon follows the meta through the `dark:` variant, so no React state is needed.
 export default function ThemeSwitcher() {
+  // Stay in sync when the override changes in another tab.
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => { if (e.key === 'theme' || e.key === null) applyStored(); };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
+
   const toggleTheme = () => {
-    const isDark = document.documentElement.classList.toggle('dark');
+    const meta = getMeta();
+    const system = matchMedia(DARK_QUERY).matches ? 'dark' : 'light';
+    const current = meta.content === 'light' || meta.content === 'dark' ? meta.content : system;
+    const target = current === 'dark' ? 'light' : 'dark';
+
+    // Only store an override that differs from the system, so the site keeps following it otherwise.
     try {
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      if (target === system) localStorage.removeItem('theme');
+      else localStorage.setItem('theme', target);
     } catch {}
+    meta.content = target === system ? 'light dark' : target;
   };
 
   return (

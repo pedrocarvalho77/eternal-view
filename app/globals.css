@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Native UI (scrollbars, form controls, canvas) follows <meta name="color-scheme">. */
+  :root {
+    color-scheme: light dark;
+  }
+  :root:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  :root:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+}
+
 @layer components {
   .text-gradient {
     @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 bg-clip-text text-transparent;

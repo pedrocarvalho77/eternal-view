@@ -20,13 +20,14 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
 }
 
-// Runs before first paint so the saved/system theme is applied without a flash.
-const themeScript = `try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`
+// Runs right after the <meta>, before first paint: applies a stored override without a flash.
+const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.querySelector('meta[name="color-scheme"]').content=t}catch(e){}`
 
 export default function RootLayout ({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="light dark" suppressHydrationWarning />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
