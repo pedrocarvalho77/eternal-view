@@ -1,14 +1,23 @@
+import type { Metadata } from 'next'
 import '../globals.css'
 import Layout from "./components/Layout";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL('https://eternal-view.vercel.app'),
   title: {
     default: 'Pedro Carvalho',
     template: '%s | Pedro Carvalho',
   },
   description: "Pedro Carvalho's personal website and projects.",
+  openGraph: {
+    title: 'Pedro Carvalho',
+    description: "Software engineer. Personal website and projects.",
+    siteName: 'Pedro Carvalho',
+    type: 'website',
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 // Runs before first paint so the saved/system theme is applied without a flash.
