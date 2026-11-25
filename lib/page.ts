@@ -59,6 +59,8 @@ export async function renderPage(): Promise<string> {
   --display-tracking: -0.035em;
   --display-tracking-xl: -0.04em;
 }
+/* the statement's resting words: 3:1 at least on the ground (the kit's 50% mix measured 2.6:1 with this palette) */
+@media (prefers-reduced-motion: no-preference) { .mo-wh .mo-w:not(.is-on) { color: color-mix(in oklab, var(--ink) 68%, var(--bg)); } }
 #projects .rows > li { padding-block: var(--s-3); }
 @media (max-width: 359px) { .nav__actions .btn { display: none; } }
 @media (max-width: 1099px) { #projects .rows--rest > li > p { display: none; } }
