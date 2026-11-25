@@ -13,13 +13,19 @@ export default function About() {
         height={350}
         className="mt-6 max-w-full h-auto object-cover rounded-lg border border-gray-500"
       />
-      <p className="text-lg text-gray-700 dark:text-gray-300 mt-10">
-        With a degree in Computer Science and interest in areas like AI, sports, and others. I have some
-        experience of management positions in non-profit organizations and almost one year of experience as
-        an operational assistant. Throughout my career, I have tried to combine the technical knowledge
-        obtained in my degree with my organizational experience. However, now I&apos;m more interested in
-        gaining more technical knowledge.
-      </p>
+      <div className="text-lg text-gray-700 dark:text-gray-300 mt-10 space-y-4">
+        <p>
+          I&apos;m a software engineer at FanDuel (through Blip.pt) in Porto, Portugal. I have a bachelor&apos;s
+          degree in Computer Science from FCUP and I&apos;m now doing a master&apos;s in Computer Software
+          Engineering at ISEP.
+        </p>
+        <p>
+          Before moving into development, I held management roles in non-profit organizations, including
+          president of Grupo de Jovens Luz da Vida and founding member and treasurer of Projeto 1513. I try to
+          combine that organizational experience with my technical background.
+        </p>
+        <p>Outside of work I&apos;m interested in sports, volunteering and music.</p>
+      </div>
     </div>
   );
 }
