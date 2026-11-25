@@ -15,9 +15,11 @@ const snapshot: Repo[] = snapshotData;
 // Repos shown first and larger on the home page, in this order. The rest are listed below them.
 export const featured = ["jubilant-api", "jubliant-spoon", "Tiger-0-Compiler", "AI-Machine-Learning"];
 
-// Local descriptions for repos whose GitHub description is empty.
+// Local descriptions where the GitHub one is empty or too long for a list row.
 const overrides: Record<string, Partial<Pick<Repo, "description">>> = {
   "Tiger-0-Compiler": { description: "A Tiger-0 language compiler written in Haskell, Yacc and Lex." },
+  "Tiger-0-Compiler-Prolog": { description: "A Tiger-0 compiler written in Prolog." },
+  "AI-Machine-Learning": { description: "Classification models for speed dating events, with decision trees and Naive Bayes." },
   Battleship: { description: "Battleship academic project in C." },
 };
 
