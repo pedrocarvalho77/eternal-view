@@ -114,6 +114,12 @@ export async function renderPage(): Promise<string> {
         <div class="section-head">
           <h2 id="skills-h">Tools for backend software. <span class="muted">What I use in my job.</span></h2>
         </div>
+        <ul class="rows">
+          <li><span class="rows__name">Build</span><span class="rows__value">Java, Spring Boot, Maven</span></li>
+          <li><span class="rows__name">Data</span><span class="rows__value">Kafka, Cassandra</span></li>
+          <li><span class="rows__name">Delivery</span><span class="rows__value">GitHub Actions, Jenkins, Buildkite</span></li>
+          <li><span class="rows__name">Monitoring</span><span class="rows__value">Datadog</span></li>
+        </ul>
       </div>
       <div class="panel span-6 start-7" style="--p-h: 520px"><div class="dg" data-diagram><script type="application/json">{"layout": "hub", "shape": "radial", "pulse": "none", "alt": "A backend at the centre, connected to the tools I use: Java, Spring Boot and Maven for building; Kafka and Cassandra for data; GitHub Actions, Jenkins and Buildkite for delivery; Datadog for monitoring.", "center": {"label": "Backend", "icon": "ui:server"}, "spokes": [{"label": "Build", "children": [{"label": "Java", "icon": "java"}, {"label": "Spring Boot", "icon": "spring"}, {"label": "Maven", "icon": "logos:maven"}]}, {"label": "Data", "children": [{"label": "Kafka", "icon": "kafka"}, {"label": "Cassandra", "icon": "cassandra"}]}, {"label": "Delivery", "children": [{"label": "GitHub Actions", "icon": "github-actions"}, {"label": "Jenkins", "icon": "jenkins"}, {"label": "Buildkite", "icon": "buildkite"}]}, {"label": "Monitoring", "children": [{"label": "Datadog", "icon": "datadog"}]}]}</script></div></div>
     </div>
